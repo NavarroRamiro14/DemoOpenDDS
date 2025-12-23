@@ -1,0 +1,19 @@
+# Archivos compilados y objetos
+*.o
+*.so
+*.a
+*.exe
+
+# Ejecutables generados (según tu mpcc)
+publisher
+subscriber
+
+# Archivos generados por MPC y Make
+GNUmakefile*
+*.bld
+.depend
+.mpc_configured
+
+# Archivos de sistema o editor
+.DS_Store
+.vscode/

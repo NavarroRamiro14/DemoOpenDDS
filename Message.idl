@@ -1,0 +1,15 @@
+module Demo {
+  // Definimos la estructura del mensaje
+  // #pragma DCPS_DATA_TYPE explica a OpenDDS cuál es el tipo principal
+  #pragma DCPS_DATA_TYPE "Demo::Posicion"
+  
+  // #pragma DCPS_DATA_KEY define qué campo es la "Primary Key"
+  // Si cambia el 'id', es un objeto distinto (ej: avión 1 vs avión 2)
+  #pragma DCPS_DATA_KEY "Demo::Posicion id"
+
+  struct Posicion {
+    long id;           // Identificador del emisor (ej: ID del avión)
+    string texto;      // Un mensaje de texto (ej: "Rumbo Norte")
+    long contador;     // Para ver si perdemos paquetes (1, 2, 3...)
+  };
+};

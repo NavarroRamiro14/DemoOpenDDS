@@ -1,0 +1,33 @@
+project(*idl): dcps {
+  // Esto le dice a MPC: "Genera código C++ a partir de este IDL"
+  TypeSupport_Files {
+    Message.idl
+  }
+  custom_only = 1
+}
+
+project(*Publisher): dcpsexe, dcps_rtps_udp {
+  exename   = publisher
+  after    += *idl
+  
+  TypeSupport_Files {
+    Message.idl
+  }
+
+  Source_Files {
+    Publisher.cpp
+  }
+}
+
+project(*Subscriber): dcpsexe, dcps_rtps_udp {
+  exename   = subscriber
+  after    += *idl
+  
+  TypeSupport_Files {
+    Message.idl
+  }
+
+  Source_Files {
+    Subscriber.cpp
+  }
+}
