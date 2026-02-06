@@ -4,6 +4,19 @@
 *.a
 *.exe
 
+# Ignorar archivos de dependencias y compilación de OpenDDS
+.depend.*
+.obj/
+GNUmakefile*
+
+# Archivos generados automáticamente por el IDL
+*C.cpp
+*C.h
+*C.inl
+*S.cpp
+*S.h
+*TypeSupport*.*
+
 # Ejecutables generados (según tu mpcc)
 publisher
 subscriber
