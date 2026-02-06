@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
     Demo::PosicionDataWriter_var pos_writer =
       Demo::PosicionDataWriter::_narrow(writer);
 
-    // 6. Ciclo de Publicación
+    // 6. Ciclo de Publicación 
     Demo::Posicion mensaje;
     mensaje.id = 1; // ID del "Avión" o entidad
     mensaje.contador = 0;
