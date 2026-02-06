@@ -5,9 +5,20 @@
 #include "MessageTypeSupportImpl.h" // Generado por IDL
 #include <iostream>
 #include <thread> // Para simular espera entre mensajes
+#include <string> //Necesario para std::stoi
 
 int main(int argc, char* argv[]) {
   try {
+    // 1a. Verificación de seguridad
+    // argv[0] es el nombre del programa, argv[1] sería nuestro ID
+    if (argc < 2) {
+        std::cerr << "USO: ./consola <ID_NUMERICO>" << std::endl;
+        return 1;
+    }
+
+    // 2a. Convertir el argumento de texto a numero
+    int mi_id_propio = std::stoi(argv[1]);
+
     // 1. Inicializar el Participante (La "Entidad" en el dominio DDS)
     DDS::DomainParticipantFactory_var dpf =
       TheParticipantFactoryWithArgs(argc, argv);
@@ -59,10 +70,10 @@ int main(int argc, char* argv[]) {
 
     // 6. Ciclo de Publicación 
     Demo::Posicion mensaje;
-    mensaje.id = 1; // ID del "Avión" o entidad
+    mensaje.id = mi_id_propio; // ID de la terminal
     mensaje.contador = 0;
 
-    std::cout << "Empezando a publicar..." << std::endl;
+    std::cout << "Empezando a publicar con ID:" << mi_id_propio << std::endl;
 
     while (true) {
       mensaje.contador++;
